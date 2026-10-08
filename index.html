@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="tr" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Viran Cafe · Menü</title>
+  <meta name="description" content="Viran Cafe dijital menü — kahvaltıdan pastaneye, kahveden bara. 7/24 açığız.">
+  <meta name="theme-color" content="#0d0a07">
+  <link rel="icon" href="assets/img/emblem.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>try{var t=localStorage.getItem('viran-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+
+  <!-- Emblem: reused everywhere via <use> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="emblem" viewBox="0 0 100 100">
+        <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="miter">
+          <path class="e-line" pathLength="1" d="M23 23H77V77H23Z"/>
+          <path class="e-line" pathLength="1" d="M50 9L91 50L50 91L9 50Z"/>
+          <path class="e-line" pathLength="1" d="M85.1 64.6L64.6 85.1H35.4L14.9 64.6V35.4L35.4 14.9H64.6L85.1 35.4Z"/>
+          <path class="e-line" pathLength="1" d="M27 27H73V73H27Z" opacity=".55"/>
+        </g>
+        <path class="e-v" fill="currentColor" d="M37.2 36.5h9.6v1.2l-2.6.5 6.9 18.2 6.6-18.2-2.7-.5v-1.2h7.4v1.2l-2.3.6-9.1 24.6h-1.8l-9.4-24.6-2.6-.6z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Intro -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro__inner">
+      <svg class="intro__emblem"><use href="#emblem"/></svg>
+      <div class="intro__word">VİRAN</div>
+      <div class="intro__sub">C A F E</div>
+      <div class="intro__line"></div>
+      <div class="intro__tag">7/24 Açığız</div>
+    </div>
+  </div>
+
+  <!-- Top bar -->
+  <header class="topbar" id="topbar">
+    <button class="topbar__brand" id="toTop" aria-label="Başa dön">
+      <svg class="topbar__emblem"><use href="#emblem"/></svg>
+      <span class="topbar__word">VİRAN</span>
+    </button>
+    <div class="topbar__actions">
+      <button class="icon-btn" id="openSearch" aria-label="Menüde ara">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      </button>
+      <button class="icon-btn" id="themeToggle" aria-label="Gündüz / gece görünümü">
+        <svg class="i-moon" viewBox="0 0 24 24"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn icon-btn--bag" id="openTray" aria-label="Seçimlerim">
+        <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+        <span class="badge" id="trayCount" hidden>0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero__media"><img id="heroImg" alt="" fetchpriority="high"></div>
+    <div class="hero__veil"></div>
+    <div class="hero__content">
+      <p class="eyebrow hero__eyebrow"><span class="dot"></span><span id="heroClock">7/24 açık</span></p>
+      <h1 class="hero__title" id="heroTitle">İyi akşamlar.</h1>
+      <p class="hero__lead" id="heroLead"></p>
+      <div class="hero__cta">
+        <a class="btn btn--gold" id="heroCta" href="#menu">Menüyü keşfedin</a>
+        <a class="btn btn--ghost" href="#menu">Tüm menü</a>
+      </div>
+    </div>
+    <a class="hero__scroll" href="#signatures" aria-label="Aşağı kaydır"><span></span></a>
+  </section>
+
+  <!-- Signatures -->
+  <section class="signatures" id="signatures">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Maison Seçkisi</p>
+      <h2 class="sec-title">İmza <em>Lezzetler</em></h2>
+      <p class="sec-lead">Mutfağımızın ve pastanemizin en çok sevilenleri.</p>
+    </div>
+    <div class="sig-track" id="sigTrack"></div>
+  </section>
+
+  <!-- Chapters (category index) -->
+  <section class="chapters" id="menu">
+    <div class="sec-head reveal">
+      <p class="eyebrow">À la carte</p>
+      <h2 class="sec-title">Menü</h2>
+      <div class="ornament"><span></span><svg><use href="#emblem"/></svg><span></span></div>
+    </div>
+    <div id="chapterIndex"></div>
+  </section>
+
+  <!-- Sticky category nav -->
+  <nav class="catnav" id="catnav" aria-label="Kategoriler">
+    <div class="catnav__scroller" id="catnavList"></div>
+    <div class="catnav__view" role="group" aria-label="Görünüm">
+      <button class="view-btn" data-view="list" aria-label="Liste görünümü"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button class="view-btn" data-view="grid" aria-label="Galeri görünümü"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg></button>
+    </div>
+  </nav>
+
+  <main class="menu" id="menuBody"></main>
+
+  <footer class="footer">
+    <svg class="footer__emblem"><use href="#emblem"/></svg>
+    <div class="footer__word">VİRAN</div>
+    <div class="footer__sub">C A F E</div>
+    <p class="footer__open"><span class="dot"></span> Haftanın her günü, günün her saati açığız.</p>
+    <p class="footer__note">Alerjen ve içerik bilgisi için lütfen personelimize danışınız.<br>Fiyatlarımız Türk Lirası (₺) cinsindendir.</p>
+  </footer>
+
+  <!-- Item sheet -->
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+    <div class="sheet__backdrop" data-close></div>
+    <div class="sheet__panel">
+      <div class="sheet__grip" data-close></div>
+      <button class="sheet__close icon-btn" data-close aria-label="Kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <div class="sheet__body" id="sheetBody"></div>
+    </div>
+  </div>
+
+  <!-- Selections tray -->
+  <div class="sheet tray" id="tray" role="dialog" aria-modal="true" aria-labelledby="trayTitle" hidden>
+    <div class="sheet__backdrop" data-close></div>
+    <div class="sheet__panel">
+      <div class="sheet__grip" data-close></div>
+      <button class="sheet__close icon-btn" data-close aria-label="Kapat"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <div class="sheet__body" id="trayBody"></div>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <div class="search" id="search" role="dialog" aria-modal="true" aria-label="Menüde ara" hidden>
+    <div class="search__bar">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      <input id="searchInput" type="search" placeholder="Lezzet, içecek, aroma ara…" autocomplete="off" enterkeyhint="search">
+      <button class="search__cancel" id="closeSearch">Vazgeç</button>
+    </div>
+    <div class="search__results" id="searchResults"></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/menu-data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
